@@ -72,15 +72,15 @@ Navigate to your frontend directory and run:
 npm install  
 npm start  
 
-**Deploy in Porduction:**
-Backend Deployment: Create the JAR file using mvn clean package and run it.
-Frontend Deployment: Install Nginx, move your build folder to /var/www/html, and restart the Nginx service to host the site.
-sudo apt update
-sudo apt install nginx
-systemctl start nginx
-systemctl enable nginx
+**Deploy in Porduction:**  
+Backend Deployment: Create the JAR file using mvn clean package and run it.  
+Frontend Deployment: Install Nginx, move your build folder to /var/www/html, and restart the Nginx service to host the site.  
 
-### Troubleshoot commands  
+sudo apt install nginx  
+systemctl start nginx  
+systemctl enable nginx  
+
+### Troubleshoot commands    
 sudo ufw allow 8080  
 sudo netstat -tulpn | grep 8080  
 sudo systemctl status mysql  
