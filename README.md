@@ -70,3 +70,8 @@ Navigate to your frontend directory and run:
 npm install  
 npm start  
 
+### Troubleshoot commands  
+sudo ufw allow 8080  
+sudo netstat -tulpn | grep 8080  
+sudo systemctl status mysql  
+sudo kill -9 $(sudo lsof -t -i:8080) or sudo ss -lptn 'sport = :8080'  
