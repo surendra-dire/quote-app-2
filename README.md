@@ -58,6 +58,8 @@ INSERT INTO quotes (text, author, user_id) VALUES ('The only way to do great wor
 
 # 🚀 **Getting started**
 
+**Deploy Locally:** 
+
 Permissions  
 Ensure the current user owns the project directory so you don't run into "Permission Denied" errors:  
 sudo chown -R $USER:$USER /home/ubuntu/quote-app 
@@ -69,6 +71,14 @@ mvn spring-boot:run
 Navigate to your frontend directory and run:  
 npm install  
 npm start  
+
+**Deploy in Porduction:**
+Backend Deployment: Create the JAR file using mvn clean package and run it.
+Frontend Deployment: Install Nginx, move your build folder to /var/www/html, and restart the Nginx service to host the site.
+sudo apt update
+sudo apt install nginx
+systemctl start nginx
+systemctl enable nginx
 
 ### Troubleshoot commands  
 sudo ufw allow 8080  
