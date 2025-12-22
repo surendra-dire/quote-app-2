@@ -1,12 +1,12 @@
 
 # Quotes Management Application
-A full-stack application featuring a Java Spring Boot backend, a React.js frontend, and a MySQL database.  
+A full-stack application utilizing Java Spring Boot for backend, React.js for frontend, and MySQL for relational data management.
 
 ### Prerequisites & Environment Setup
 Before running the application, ensure your system is updated and the required runtimes are installed.
 
 #### Install Java & Maven
-sudo apt update
+sudo apt update  
 sudo apt install -y  
 openjdk-17-jdk maven  
 java -version 
