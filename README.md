@@ -70,24 +70,24 @@ mvn spring-boot:run
 
 Verify user can be created :  
 
-✅ Register a user
+✅ Register a user  
 curl -X POST http://localhost:8080/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{"username":"testuser","password":"123","name":"Test User"}'
 
-🧪 Login Test
+🧪 Login Test  
 curl -X POST http://localhost:8080/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username":"testuser","password":"123"}'
 
-Add Quote for user ID = 1
-curl http://localhost:8080/api/quotes/1
+Add Quote for user ID = 1  
+curl http://localhost:8080/api/quotes/1  
 
 curl -X POST http://localhost:8080/api/quotes/1 \
   -H "Content-Type: application/json" \
-  -d '{"text":"Stay hungry, stay foolish","author":"Steve Jobs"}'
+  -d '{"text":"Stay hungry, stay foolish","author":"Steve Jobs"}'  
 
-
+  
 🚀 Summary
 Action	URL
 Register user	POST /api/auth/register
