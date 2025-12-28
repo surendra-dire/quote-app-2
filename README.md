@@ -68,6 +68,12 @@ Navigate to your backend and run:
 mvn clean install  
 mvn spring-boot:run  
 
+Verify user can be created :  
+
+curl -X POST http://localhost:8080/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser","password":"123","name":"Test User"}'
+  
 Navigate to your frontend directory and run:  
 npm install  
 npm start  
