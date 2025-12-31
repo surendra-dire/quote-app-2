@@ -105,9 +105,11 @@ npm start
 **Deploy in Porduction:**  
 
 **Backend Deployment:**    
+A shell script (start.sh) is used to securely initialize backend configuration by fetching database credentials from AWS Secrets Manager. The script parses the secret JSON using jq, sets the required Spring Boot environment variables, and starts the application JAR.
 
-Create a shell script to initialize the backend user,password and url:  
-start.sh  
+sudo apt install -y jq
+mvn clean install
+sudo vi start.sh  
 
 <pre style="color: orange;">
 #!/bin/bash
@@ -122,14 +124,15 @@ export SPRING_DATASOURCE_USERNAME=$(echo $RAW_SECRETS | jq -r .username)
 export SPRING_DATASOURCE_PASSWORD=$(echo $RAW_SECRETS | jq -r .password)
 
 echo "Starting Application..."
-#java -jar your-app.jar
+java -jar target/quotes-0.0.1-SNAPSHOT.jar
 
 </pre>  
 
 chmod +x start.sh  
-./start.sh  
-
+ 
 Verify manaully:  
+./start.sh 
+
 RAW_SECRETS=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --query SecretString --output text)  
 
 MY_USER=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --query SecretString --output text | jq -r .username)  
@@ -184,6 +187,9 @@ server {
 sudo nginx -t  
 sudo systemctl restart nginx   
 sudo systemctl enable nginx   
+
+
+
 ### Troubleshoot commands:   
 sudo ufw allow 8080  
 sudo netstat -tulpn | grep 8080  
