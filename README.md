@@ -103,7 +103,41 @@ npm install
 npm start  
 
 **Deploy in Porduction:**  
-Backend Deployment: Create the JAR file using mvn clean package and run it.  
+Backend Deployment:   
+Create a shell script to initialize the backend user,password and url:  
+start.sh
+
+<pre style="color: orange;">
+#!/bin/bash
+
+echo "Fetching secrets from AWS..."
+# Fetching the JSON
+RAW_SECRETS=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --query SecretString --output text)
+
+# Parsing individual keys
+export SPRING_DATASOURCE_URL=$(echo $RAW_SECRETS | jq -r .url)
+export SPRING_DATASOURCE_USERNAME=$(echo $RAW_SECRETS | jq -r .username)
+export SPRING_DATASOURCE_PASSWORD=$(echo $RAW_SECRETS | jq -r .password)
+
+echo "Starting Application..."
+#java -jar your-app.jar
+
+</pre>
+
+chmod +x start.sh
+
+Verify manaully:  
+RAW_SECRETS=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --query SecretString --output text)  
+
+MY_USER=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --query SecretString --output text | jq -r .username)
+echo $MY_USER
+
+
+
+
+
+
+
 Frontend Deployment: Install Nginx, move your build folder to /var/www/html, and restart the Nginx service to host the site.  
 
 sudo apt install -y nginx  
