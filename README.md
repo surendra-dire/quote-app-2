@@ -103,7 +103,9 @@ npm install
 npm start  
 
 **Deploy in Porduction:**  
-Backend Deployment:   
+
+**Backend Deployment:**    
+
 Create a shell script to initialize the backend user,password and url:  
 start.sh  
 
@@ -133,13 +135,8 @@ RAW_SECRETS=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --q
 MY_USER=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --query SecretString --output text | jq -r .username)  
 echo $MY_USER  
 
-
-
-
-
-
-
-Frontend Deployment: Install Nginx, move your build folder to /var/www/html, and restart the Nginx service to host the site.  
+**Frontend Deployment:**   
+Install Nginx, move your build folder to /var/www/html, and restart the Nginx service to host the site.  
 
 sudo apt install -y nginx  
 systemctl start nginx  
