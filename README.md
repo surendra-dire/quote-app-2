@@ -114,7 +114,7 @@ npm run build
 sudo mkdir /var/www/react/  
 sudo cp -r build/* /var/www/react/  
 
-configure nginx conf file:  
+configure nginx conf file:  /etc/nginx/sites-available/default   
 
 <pre style="color: orange;">
 server {
