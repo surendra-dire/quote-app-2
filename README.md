@@ -105,7 +105,7 @@ npm start
 **Deploy in Porduction:**  
 Backend Deployment:   
 Create a shell script to initialize the backend user,password and url:  
-start.sh
+start.sh  
 
 <pre style="color: orange;">
 #!/bin/bash
@@ -122,15 +122,16 @@ export SPRING_DATASOURCE_PASSWORD=$(echo $RAW_SECRETS | jq -r .password)
 echo "Starting Application..."
 #java -jar your-app.jar
 
-</pre>
+</pre>  
 
-chmod +x start.sh
+chmod +x start.sh  
+./start.sh  
 
 Verify manaully:  
 RAW_SECRETS=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --query SecretString --output text)  
 
-MY_USER=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --query SecretString --output text | jq -r .username)
-echo $MY_USER
+MY_USER=$(aws secretsmanager get-secret-value --secret-id prod/quotes/db --query SecretString --output text | jq -r .username)  
+echo $MY_USER  
 
 
 
@@ -184,8 +185,8 @@ server {
   
   
 sudo nginx -t  
-systemctl restart nginx   
-systemctl enable nginx   
+sudo systemctl restart nginx   
+sudo systemctl enable nginx   
 ### Troubleshoot commands:   
 sudo ufw allow 8080  
 sudo netstat -tulpn | grep 8080  
