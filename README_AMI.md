@@ -1,9 +1,9 @@
 
-# ✍️ Quotes Management Application
-A full-stack application utilizing Java Spring Boot for backend, React.js for frontend, and MySQL for relational database management.
+# ✍️ Create AMI and autoscalling group.
+For simplicity, there is only one image got created for the backed and frontend.
 
-### Prerequisites & Environment Setup
-Before running the application, ensure your system is updated and the required runtimes are installed.
+### Setup Environment 
+Provision an aws EC2 isntance and install all the runtimes.
 
 #### Install Java & Maven
 sudo apt update  
